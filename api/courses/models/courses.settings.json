@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "name": "course"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "minLength": 10
+    },
+    "link": {
+      "type": "string",
+      "unique": true,
+      "regex": "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)"
+    },
+    "description": {
+      "type": "text"
+    },
+    "categories": {
+      "via": "courses",
+      "collection": "category"
+    },
+    "comments": {
+      "via": "course",
+      "collection": "comments"
+    },
+    "ratings": {
+      "via": "course",
+      "collection": "rating"
+    }
+  }
+}

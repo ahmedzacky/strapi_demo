@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ratings",
+  "info": {
+    "name": "Rating"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "rating": {
+      "type": "float",
+      "min": 0,
+      "max": 5
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "ratings"
+    },
+    "course": {
+      "model": "courses",
+      "via": "ratings"
+    }
+  }
+}
